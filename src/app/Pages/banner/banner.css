@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #FFD700;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Hero ────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  min-height: 420px;
+  max-height: 680px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* ─── Static Background Image ─────────────────────── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* ─── Dark Gradient Overlay ───────────────────────── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.55) 0%,
+      rgba(0,0,0,0.05) 50%,
+      rgba(0,0,0,0.35) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.65) 0%,
+      transparent 45%
+    );
+  z-index: 1;
+}
+
+/* ─── Main Title — LEFT CENTER ────────────────────── */
+.hero-title-left {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.hero-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(35px, 4.5vw, 50px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* ─── Keep Exploring — RIGHT CENTER ──────────────── */
+.hero-title-right {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.hero-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(18px, 2.2vw, 34px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-subtitle:hover {
+  color: var(--primary-color);
+}
+
+/* ─── Bottom Left — + button + description ─────────── */
+.hero-bottom-left {
+  position: absolute;
+  bottom: 32px;
+  left: 48px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  z-index: 10;
+  max-width: 460px;
+}
+
+.plus-btn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.plus-btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #000;
+}
+
+.hero-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(12px, 1.1vw, 15px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─── MENU — Bottom Center ────────────────────────── */
+.hero-menu {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.92);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: var(--transition);
+}
+
+.menu-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+}
+
+.menu-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #000;
+  padding: 13px 14px 13px 22px;
+}
+
+.menu-icon {
+  width: 38px;
+  height: 38px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 4px;
+  transition: var(--transition);
+}
+
+.menu-icon span {
+  display: block;
+  width: 14px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.menu-btn:hover .menu-icon span:nth-child(1) { width: 9px; }
+.menu-btn:hover .menu-icon span:nth-child(3) { width: 9px; }
+
+/* ─── 1024px ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero {
+    border-radius: 20px;
+  }
+  .hero-title-left  { left: 36px; }
+  .hero-title-right { right: 36px; }
+  .hero-bottom-left { left: 36px; }
+}
+
+/* ─── 768px ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    min-height: 360px;
+    border-radius: 16px;
+  }
+
+  .hero-title-left {
+    left: 24px;
+    top: 38%;
+  }
+
+  .hero-title {
+    font-size: clamp(26px, 6vw, 42px);
+  }
+
+  .hero-title-right {
+    right: 24px;
+    top: auto;
+    bottom: 96px;
+    transform: none;
+  }
+
+  .hero-subtitle { font-size: 17px; }
+
+  .hero-bottom-left {
+    left: 24px;
+    bottom: 24px;
+    max-width: 260px;
+    gap: 12px;
+  }
+
+  .hero-desc { font-size: 12px; }
+
+  .hero-menu { bottom: 24px; }
+}
+
+/* ─── 480px ────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero {
+    height: 55vh;
+    min-height: 320px;
+    border-radius: 12px;
+  }
+
+  .hero-title-left { left: 20px; top: 32%; }
+  .hero-title      { font-size: 26px; }
+
+  /* hide Keep Exploring on small mobile */
+  .hero-title-right { display: none; }
+
+  .hero-bottom-left {
+    left: 20px;
+    bottom: 20px;
+    max-width: 200px;
+    gap: 10px;
+  }
+
+  .plus-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+
+  .hero-desc { font-size: 11px; }
+
+  .menu-label { font-size: 11px; padding: 11px 12px 11px 18px; }
+  .menu-icon  { width: 34px; height: 34px; }
+}

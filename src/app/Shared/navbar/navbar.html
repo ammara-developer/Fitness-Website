@@ -1,0 +1,62 @@
+<!-- ===== HEADER START ===== -->
+<header class="header" [class.scrolled]="activeSection !== 'home'">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-info">
+        <span>CONTACT@HYPERFIT.COM</span>
+        <span>/</span>
+        <span>(123) 456 - 7890</span>
+      </div>
+      <div class="header-hours">
+        <span>MONDAY - FRIDAY [ 7 AM - 10 PM ]</span>
+        <span>/</span>
+        <span>SATURDAY - SUNDAY [ 7 AM - 9 AM ]</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+
+        <div class="logo" (click)="scrollToSection('home')">
+          <h2>HYPERFIT</h2>
+        </div>
+
+        <ul class="nav-menu" [class.active]="mobileMenuOpen">
+          <li><a (click)="scrollToSection('about')"        [class.active]="activeSection === 'about'">About</a></li>
+          <li><a (click)="scrollToSection('services')"     [class.active]="activeSection === 'services'">Services</a></li>
+          <li><a (click)="scrollToSection('pricing')"      [class.active]="activeSection === 'pricing'">Pricing</a></li>
+          <li><a (click)="scrollToSection('testimonials')" [class.active]="activeSection === 'testimonials'">Testimonials</a></li>
+          <li><a (click)="scrollToSection('faq')"          [class.active]="activeSection === 'faq'">FAQ</a></li>
+          <li class="mobile-contact-item">
+            <a (click)="scrollToSection('contact')" class="btn-primary mobile-contact-btn">
+              Contact Us
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3.33301 8H12.6663M12.6663 8L8.66634 4M12.6663 8L8.66634 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <button class="btn-primary desktop-contact-btn" (click)="scrollToSection('contact')">
+          Contact Us
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3.33301 8H12.6663M12.6663 8L8.66634 4M12.6663 8L8.66634 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button 
+          class="mobile-menu-toggle" 
+          (click)="toggleMobileMenu()"
+          [class.open]="mobileMenuOpen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- ===== HEADER END ===== -->

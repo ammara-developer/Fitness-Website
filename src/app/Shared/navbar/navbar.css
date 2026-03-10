@@ -1,0 +1,253 @@
+/* ===== HEADER STYLES START ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-dark);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== HEADER TOP BAR ===== */
+.header-top {
+  background: var(--bg-card);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-top .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header-info,
+.header-hours {
+  display: flex;
+  gap: 16px;
+  color: var(--text-muted);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  padding: 20px 0;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1001;
+}
+
+.logo:hover {
+  color: var(--primary-color);
+}
+
+.logo h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ===== NAV MENU ===== */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: var(--transition);
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+  width: 100%;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  color: var(--primary-color);
+}
+
+/* ===== DESKTOP CONTACT BUTTON ===== */
+.desktop-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== MOBILE CONTACT ITEM — hidden on desktop ===== */
+.mobile-contact-item {
+  display: none;
+}
+
+/* ===== HAMBURGER TOGGLE — hidden on desktop ===== */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--text-color);
+  transition: var(--transition);
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.mobile-menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.mobile-menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ===== RESPONSIVE — TABLET (max 1024px) ===== */
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 24px;
+  }
+
+  .logo h2 {
+    font-size: 24px;
+  }
+}
+
+/* ===== RESPONSIVE — MOBILE (max 768px) ===== */
+@media (max-width: 768px) {
+
+  /* Hide top info bar on small screens */
+  .header-top {
+    display: none;
+  }
+
+  .navbar {
+    padding: 16px 0;
+  }
+
+  /* Show hamburger */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  /* Hide desktop contact button */
+  .desktop-contact-btn {
+    display: none;
+  }
+
+  /* Mobile menu — full screen dropdown */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-dark);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    z-index: 1000;
+
+    /* Hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Show when active */
+  .nav-menu.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .nav-menu li a {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  /* Show contact button inside mobile menu */
+  .mobile-contact-item {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .mobile-contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+
+  /* No underline effect on contact btn */
+  .mobile-contact-item a::after {
+    display: none;
+  }
+}
+
+/* ===== RESPONSIVE — SMALL MOBILE (max 480px) ===== */
+@media (max-width: 480px) {
+  .logo h2 {
+    font-size: 22px;
+  }
+
+  .nav-menu li a {
+    font-size: 18px;
+  }
+}
+/* ===== HEADER STYLES END ===== */

@@ -1,0 +1,63 @@
+<section class="hero">
+
+  <!-- DISCOVER — top left -->
+  <h1 class="hero-text--top">Discover</h1>
+
+  <!-- Contact — left middle -->
+  <div class="hero-contact">
+    <a href="tel:+01234569870" class="contact-item">+0123-456-9870</a>
+    <a href="mailto:info@hyperfit.com" class="contact-item">info@hyperfit.com</a>
+  </div>
+
+  <!-- IMAGE — center -->
+  <div class="hero-slider">
+
+    <!-- Only show current slide -->
+    <div class="slider-track" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+      <div
+        class="slide"
+        *ngFor="let img of slides; let i = index"
+        [class.active]="i === currentIndex"
+      >
+        <img [src]="img.src" [alt]="img.alt" />
+      </div>
+    </div>
+
+    <!-- Counter -->
+    <div class="slide-counter">
+      <span class="counter-current">{{ (currentIndex + 1).toString().padStart(2, '0') }}</span>
+      <span class="counter-divider"></span>
+      <span class="counter-total">{{ slides.length.toString().padStart(2, '0') }}</span>
+    </div>
+
+    <!-- Dots -->
+    <div class="slide-dots">
+      <button
+        class="dot"
+        *ngFor="let slide of slides; let i = index"
+        [class.active]="i === currentIndex"
+        (click)="goToSlide(i)"
+      ></button>
+    </div>
+
+  </div>
+
+  <!-- JOIN NOW — right middle -->
+  <div class="hero-cta">
+    <button class="join-btn" (click)="onJoinNow()">
+      <span class="join-text">JOIN NOW</span>
+      <span class="join-arrow">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  
+
+  <!-- STRENGTH — bottom right -->
+  <h1 class="hero-text--bottom">Strength</h1>
+
+</section>

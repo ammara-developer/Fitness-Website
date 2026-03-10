@@ -1,0 +1,293 @@
+/* ===== ABOUT SECTION START ===== */
+.about {
+  background: var(--bg-card);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.about-header .section-description {
+  margin: 0 auto;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg-dark);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-8px);
+}
+
+.stat-item svg {
+  margin-bottom: 24px;
+}
+
+.stat-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about-images {
+  margin-top: 60px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  height: 500px;
+}
+
+.image-large,
+.image-small {
+  background: url(/images/img2.jpg) center/cover no-repeat;
+  background-color: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+/* ===== ABOUT SECTION END ===== */
+
+/* --------diagnoal strip---------- */
+
+/* Diagonal Strip CSS - Copy this to your stylesheet */
+
+.diagonal-strip-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin: 60px 0;
+}
+
+.strip {
+    position: absolute;
+    width: 150%;
+    height: 80px;
+    overflow: hidden;
+    left: -25%;
+    white-space: nowrap;
+}
+
+.strip-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    top: 0;
+    transform: rotate(-3deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.strip-yellow {
+    background: linear-gradient(135deg, #FFD700 0%, #FFC800 100%);
+    top: 60px;
+    transform: rotate(-3deg);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    z-index: 2;
+}
+
+.strip-content {
+    display: flex;
+    animation: scrollLeft 40s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.strip-content-reverse {
+    animation: scrollRight 40s linear infinite;
+}
+
+.text-row {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 30px;
+    height: 80px;
+}
+
+.service-text {
+    font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.strip-dark .service-text {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.strip-yellow .service-text {
+    color: #1a1a1a;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.separator {
+    margin: 0 20px;
+    font-size: 24px;
+    opacity: 0.5;
+    font-weight: bold;
+}
+
+.strip-dark .separator {
+    color: #FFD700;
+}
+
+.strip-yellow .separator {
+    color: #1a1a1a;
+}
+
+.text-row:hover .service-text {
+    transform: scale(1.05);
+    letter-spacing: 4px;
+}
+
+/* Animation keyframes */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-33.33%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pause animation on hover (optional) */
+.diagonal-strip-container:hover .strip-content {
+    animation-play-state: paused;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .diagonal-strip-container {
+        height: 180px;
+    }
+
+    .strip {
+        height: 70px;
+    }
+
+    .strip-yellow {
+        top: 55px;
+    }
+
+    .text-row {
+        padding: 0 25px;
+        height: 70px;
+    }
+
+    .service-text {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .separator {
+        font-size: 20px;
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .diagonal-strip-container {
+        height: 150px;
+    }
+
+    .strip {
+        height: 60px;
+        transform: rotate(-4deg);
+    }
+
+    .strip-yellow {
+        top: 45px;
+        transform: rotate(-4deg);
+    }
+
+    .text-row {
+        padding: 0 20px;
+        height: 60px;
+    }
+
+    .service-text {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .separator {
+        font-size: 18px;
+        margin: 0 12px;
+    }
+
+    .strip-content {
+        animation: scrollLeft 30s linear infinite;
+    }
+
+    .strip-content-reverse {
+        animation: scrollRight 30s linear infinite;
+    }
+}
+
+@media (max-width: 480px) {
+    .diagonal-strip-container {
+        height: 120px;
+    }
+
+    .strip {
+        height: 50px;
+        transform: rotate(-5deg);
+    }
+
+    .strip-yellow {
+        top: 35px;
+        transform: rotate(-5deg);
+    }
+
+    .text-row {
+        padding: 0 15px;
+        height: 50px;
+    }
+
+    .service-text {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+
+    .separator {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+
+    .strip-content {
+        animation: scrollLeft 25s linear infinite;
+    }
+
+    .strip-content-reverse {
+        animation: scrollRight 25s linear infinite;
+    }
+}
+/* ===== DIAGONAL STRIP SECTION END ===== */

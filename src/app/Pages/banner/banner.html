@@ -1,0 +1,45 @@
+<section class="hero">
+
+  <!-- Static Background Image -->
+  <div class="hero-bg" [style.backgroundImage]="'url(images/img15.avif)'"></div>
+
+  <!-- Dark overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Main Title LEFT center -->
+  <div class="hero-title-left">
+    <h1 class="hero-title">Yoga & Flexibility</h1>
+  </div>
+
+  <!-- Keep Exploring RIGHT center -->
+  <div class="hero-title-right">
+    <span class="hero-subtitle" (click)="onExplore()">Keep Exploring</span>
+  </div>
+
+  <!-- Bottom Left — + icon + description -->
+  <div class="hero-bottom-left">
+    <button class="plus-btn" (click)="onExplore()">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+    <p class="hero-desc">
+      Approach to fitness that includes both strength training<br>
+      and the mental and physical benefits of yoga.
+    </p>
+  </div>
+
+  <!-- Bottom Center — Menu Button -->
+  <div class="hero-menu">
+    <button class="menu-btn" (click)="toggleMenu()">
+      <span class="menu-label">MENU</span>
+      <span class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+</section>

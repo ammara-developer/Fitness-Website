@@ -1,0 +1,84 @@
+<!-- ===== SCHEDULE SECTION START ===== -->
+<section class="schedule-section" #scheduleSection>
+  <div class="schedule-container">
+
+    <!-- Header -->
+    <div class="section-header" [class.animate-in]="isVisible">
+      <div class="section-label">
+        <div class="label-line"></div>
+        <span>WEEKLY TIMETABLE</span>
+        <div class="label-line"></div>
+      </div>
+      <h2 class="ghost-heading">SCHEDULE</h2>
+      <p class="sub-heading">Pick your class &amp; book your spot</p>
+    </div>
+
+    <!-- Desktop Table -->
+    <div class="table-wrap" [class.animate-in]="isVisible">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>TIME</th>
+            <th *ngFor="let day of days">{{ day }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let slot of timeSlots">
+            <td class="time-cell">{{ slot.time }}</td>
+            <td *ngFor="let day of days">
+              <ng-container *ngIf="getClass(slot.time, day) as cls; else emptyTpl">
+                <div class="class-card" [ngClass]="cls.type">
+                  <span class="class-name">{{ cls.name }}</span>
+                  <span class="class-trainer">{{ cls.trainer }}</span>
+                </div>
+              </ng-container>
+              <ng-template #emptyTpl>
+                <div class="empty-cell"></div>
+              </ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile Day Tabs -->
+    <div class="day-tabs">
+      <button
+        *ngFor="let day of days"
+        class="day-tab"
+        [class.active]="activeDay === day"
+        (click)="activeDay = day">
+        {{ day.slice(0, 3) }}
+      </button>
+    </div>
+
+    <!-- Mobile Cards -->
+    <div class="mobile-schedule">
+      <div *ngFor="let day of days" [class.mobile-day-active]="activeDay === day" class="mobile-day">
+        <div class="mobile-day-title">{{ day }}</div>
+        <ng-container *ngFor="let slot of timeSlots">
+          <ng-container *ngIf="getClass(slot.time, day) as cls">
+            <div class="mobile-class-row">
+              <span class="mobile-time">{{ slot.short }}</span>
+              <div class="mobile-class-card" [ngClass]="cls.type">
+                <span class="class-name">{{ cls.name }}</span>
+                <span class="class-trainer">{{ cls.trainer }}</span>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend" [class.animate-in]="isVisible">
+      <div class="legend-item" *ngFor="let item of legendItems">
+        <span class="legend-dot" [style.background]="item.color"></span>
+        {{ item.label }}
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== SCHEDULE SECTION END ===== -->
+
