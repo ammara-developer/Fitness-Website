@@ -1,4 +1,3 @@
-/* Loader Container */
 .loader-container {
   position: fixed;
   top: 0;
@@ -12,52 +11,19 @@
   z-index: 9999;
 }
 
-/* SVG Loader */
 #loader {
   width: 120px;
   height: 110px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
 
-/* Hide down path */
-#loader #down {
-  display: none;
-}
+  #down { display: none; }
+  #up   { fill: #fff; }
 
-/* Style up path (man figure) */
-#loader #up {
-  fill: #fff;
-}
+  .border {
+    fill: none;
+    stroke: #ffc400;
+    stroke-width: 8px;
+    stroke-dasharray: 80 10;
+  }
 
-/* Border circle styling */
-#loader .border {
-  fill: none;
-  stroke: #FFD700;
-  stroke-width: 8px;
-  stroke-dasharray: 80 10;
-  stroke-linecap: round;
+  .circle { fill: #ffc400; }
 }
-
-/* Inner circle styling */
-#loader .circle {
-  fill: #FFD700;
-  opacity: 0.8;
-}
-
-/* Add smooth transitions and animations */
-#loader svg {
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Ensure proper rendering */
-#up,
-#down,
-#border {
-  transition: opacity 0.3s ease;
-}
-
