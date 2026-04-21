@@ -25,11 +25,11 @@ interface Slide {
   private readonly SPEED = 2500; // change speed here (ms)
 
   slides: Slide[] = [
-    { src: 'images/img13.jpg', alt: 'Athlete 1' },
-    { src: 'images/img14.jpg', alt: 'Athlete 2' },
-    { src: 'images/img12.jpg', alt: 'Athlete 3' },
-    { src: 'images/img4.jpg', alt: 'Athlete 4' },
-    { src: 'images/img5.jpg', alt: 'Athlete 5' },
+    { src: 'assets/images/img13.jpg', alt: 'Athlete 1' },
+    { src: 'assets/images/img14.jpg', alt: 'Athlete 2' },
+    { src: 'assets/images/img12.jpg', alt: 'Athlete 3' },
+    { src: 'assets/images/img4.jpg', alt: 'Athlete 4' },
+    { src: 'assets/images/img5.jpg', alt: 'Athlete 5' },
   ];
 
   ngOnInit(): void {
